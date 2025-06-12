@@ -1,0 +1,33 @@
+# Example Dockerfile for Python API Service
+# -----------------------------------------
+# This is a template that can be copied and modified for your specific service
+# Usage: Copy to your service directory and rename to 'Dockerfile'
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Copy requirements file and install dependencies
+# Note: Make sure your requirements.txt includes all necessary packages
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the entire codebase
+# For production, you might want to be more selective about what gets copied
+COPY . .
+
+# Set environment variables
+# These can be overridden at runtime if needed
+ENV PYTHONPATH=/app
+ENV API_HOST=0.0.0.0
+ENV API_PORT=8000
+
+# Make the entrypoint script executable
+RUN chmod +x /app/services/example_service/entrypoint.sh
+
+# Expose the port the API will run on
+EXPOSE 8000
+
+# Use entrypoint script to run the API
+# This allows for more flexibility with environment variables
+ENTRYPOINT ["/app/services/example_service/example_entrypoint.sh"] 
