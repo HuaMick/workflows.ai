@@ -1,13 +1,13 @@
 # AI-Powered QA Agent (Proof of Concept) Task List
 
-This document breaks down the development of the AI-Powered QA Agent into milestones, nodes, and functions.
+This document breaks down the development of the AI-Powered QA Agent into milestones, nodes, and functions, leveraging FastMCP for the server implementation.
 
 ## Functions
 
-- **start_mcp_server**
-  - description: Starts the MCP server process.
-- **stop_mcp_server**
-  - description: Stops the MCP server process.
+- **define_fastmcp_server**
+  - description: Defines the FastMCP server instance and registers tools.
+- **run_qa_workflow**
+  - description: A tool that finds, parses, and executes the QA workflow from `qa-workflow.md`. This is the main entry point for the QA process.
 - **find_workflow_file**
   - description: Searches for the `qa-workflow.md` file in the project root.
   - parameters: `root_path`
@@ -16,31 +16,26 @@ This document breaks down the development of the AI-Powered QA Agent into milest
   - description: Parses the markdown `qa-workflow.md` file into a list of executable tasks.
   - parameters: `file_path`
   - returns: `list_of_tasks`
-- **register_qa_trigger_tool**
-  - description: Registers a tool that the primary AI assistant can call to trigger the QA workflow.
 - **execute_qa_task**
   - description: Executes a single, predefined QA task.
   - parameters: `task`
 
 ## Milestones
 
-- [ ] **Milestone 1: MCP Server Foundation**
-  - [ ] **Task:** Setup the basic scaffolding for the MCP server.
-  - [ ] **Node:** `mcp_server_node` - Manages the lifecycle of the MCP server.
-    - [ ] `start_mcp_server`
-    - [ ] `stop_mcp_server`
+- [ ] **Milestone 1: FastMCP Server Foundation**
+  - [ ] **Task:** Setup the basic scaffolding for the FastMCP server.
+  - [ ] **Node:** `mcp_server_node` - Manages the definition of the FastMCP server.
+    - [ ] `define_fastmcp_server`
 
-- [ ] **Milestone 2: QA Workflow Discovery and Parsing**
-  - [ ] **Node:** `workflow_discovery_node` - Finds the `qa-workflow.md` file.
-    - [ ] `find_workflow_file`
-  - [ ] **Node:** `workflow_parser_node` - Parses the workflow file.
-    - [ ] `parse_workflow_file`
+- [ ] **Milestone 2: QA Workflow Tool**
+  - [ ] **Task:** Implement the core logic of the QA agent as a single tool.
+  - [ ] **Node:** `qa_workflow_node` - Orchestrates the QA workflow.
+    - [ ] `run_qa_workflow` (tool):
+      - [ ] Use `find_workflow_file` to locate `qa-workflow.md`.
+      - [ ] Use `parse_workflow_file` to extract tasks.
+      - [ ] For each task, call `execute_qa_task`.
+    - [ ] `find_workflow_file` (helper function)
+    - [ ] `parse_workflow_file` (helper function)
+    - [ ] `execute_qa_task` (helper function)
 
-- [ ] **Milestone 3: Workflow Triggering**
-  - [ ] **Node:** `workflow_trigger_node` - Exposes a mechanism for the primary AI assistant to trigger the QA workflow.
-    - [ ] `register_qa_trigger_tool`
-  > ⚠️ **TBC:** The PRD mentions that the trigger mechanism is a key design decision and could be an explicit tool call or a hook. This needs clarification to determine the final implementation.
-
-- [ ] **Milestone 4: QA Agent Execution**
-  - [ ] **Node:** `qa_agent_execution_node` - Executes the predefined tasks from the QA workflow.
-    - [ ] `execute_qa_task` 
+> ⚠️ **TBC:** The PRD mentions that the trigger mechanism is a key design decision. With FastMCP, this is simplified to calling the `run_qa_workflow` tool. We need to confirm this aligns with the overall architecture. 
