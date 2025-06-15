@@ -1,0 +1,20 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Task List Management
+
+Guidelines for managing task lists in markdown files to track progress on completing a PRD.
+
+## Process
+
+1. `grep search` for a `milestones.md` if not found ask the user to create one then stop.
+
+2. for each milestone `grep search` its tasklist file.
+
+3. review each item in the tasklist file  
+    - Check what task you are working on, is it a task, workflow, class, function, service or test
+    - Request the appropriate rules for that task based on its type.
+    - Compete the item in the task list.
+    - After completing an item Mark it as completed (`[x]`).

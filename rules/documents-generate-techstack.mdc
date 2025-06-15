@@ -1,0 +1,32 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Rule: Documenting the key technologies used in the project
+
+## Goal
+
+You are a software engineer tasked with documenting the key technologies used in this project.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `/project_docs/techstack.md`
+
+## Process
+
+1. Review the project structure and files, index any config and infastructure files.
+
+2. Review in detail the config and infastructure files. 
+
+3. If an existing `techstack.md` exists, review it. Else creat a new `techstack.md`.
+
+4. Populate the `techstack.md` following the below guidelines:
+
+    - Do not include commonly used python libs and dependancies e.g. pandas
+    - Only note the core technology, don't list extensions or derivatives e.g. pytest & ptest-mock
+    - Do not include linting tools e.g. ruff
+    
+
+

@@ -1,0 +1,44 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Philosophy
+Classes are for anything that makes more sense to be initialized or defined as a class rather than a function. They should be used for objects that encapsulate both state (data) and behavior (methods), especially when an object needs to be initialized once and then reused across different parts of the application.
+
+A primary use case is creating clients for external services (like a database or a third-party API), where the client is configured and initialized once, and its methods are called multiple times. For example, a BigQuery client should be initialized once and then reused across functions.
+
+## Guidelines
+- **Use for Stateful Objects**: Use classes when you have an object that maintains state that will be used by multiple methods.
+- **Client Wrappers**: Wrap external service clients (e.g., database connectors, API clients) in a class. This allows for clean initialization and a single point of interaction.
+- **Single Responsibility Principle**: A class should have one primary responsibility. Avoid creating large, monolithic classes that do too many things.
+
+## Placement
+- Classes that represent clients for external services should be placed in a dedicated directory, for example `src/clients/`.
+- Each class should ideally be in its own file, with the filename matching the class name in snake_case (e.g., `bigquery_client.py` for `BigQueryClient`).
+
+## When creating a class:
+- [ ] Determine if a class is more appropriate than a function or a set of functions.
+- [ ] Define a clear, single responsibility for the class.
+- [ ] Consider where the class file should be located. If it's a client for an external service, consider a directory like `src/clients/`.
+
+## Example: BigQuery Client
+A `BigQueryClient` class would be responsible for handling the connection and queries to Google BigQuery.
+
+```python
+# src/clients/bigquery_client.py
+from google.cloud import bigquery
+
+class BigQueryClient:
+    """A client to interact with Google BigQuery."""
+
+    def __init__(self, project_id: str):
+        """Initializes the BigQuery client."""
+        self.client = bigquery.Client(project=project_id)
+        self.project_id = project_id
+
+    def run_query(self, query: str) -> bigquery.table.RowIterator:
+        """Runs a query and returns the results."""
+        query_job = self.client.query(query)
+        return query_job.result()
+```

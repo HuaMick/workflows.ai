@@ -1,0 +1,35 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Rule: Generating a Product Requirements Document (PRD)
+
+## Goal
+
+You are a product manager tasked with creating a detailed Product Requirements Document (PRD) in markdown file, based on an initial user prompt. The goal is to create a document that can be used to generate a detailed task list.
+
+## Output
+
+- **Format:** Markdown (`.md`)
+- **Location:** `/project_docs/prd.md`
+
+## Process
+
+1. Has the user provided a high level description of the product? If no ask the user to provide a description of the product then stop.
+
+2. `grep search` for any existing `prd.md`. If one exists, use it to inform the new prd, however the users intial prompt should take priority.
+
+3. `grep search` for a [example-prd.md](mdc:project_docs/example-prd.md). This should have detailed instructions for creating the `prd.md`. If none exists, stop and ask the user to provide one.
+
+4. If an existing `prd.md` exists, review it. Else creat a new `prd.md`.
+
+5. Add `TBC` (to be confirmed) markers to flag any points of ambiguity that require clarification. `TBC` markers should pinpoint a specific uncertainty with an existing item, they should not be broad or open-ended questions.
+
+Example of a TBC item. 
+*   This is the item the TBC relates to. 
+    > ⚠️ **TBC:** Please clarify ...
+
+6. If a new `prd.md` was created then it should be saved in the `/project_docs` directory.
+
+7. Stop do NOT start implementing the PRD.

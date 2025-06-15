@@ -1,0 +1,28 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Rule: Populating the Task Lists for each milestone
+
+## Goal
+
+You are a technical writer tasked with breaking down the `milestones.md` into separate task lists. The task list are designed to guide junior developers and AI assistants in developing a product that delivers on the requirments of the PRD. Tasklists are made up of [classes.mdc](mdc:.cursor/rules/classes.mdc), [services.mdc](mdc:.cursor/rules/services.mdc) [workflows.mdc](mdc:.cursor/rules/workflows.mdc), [functions.mdc](mdc:.cursor/rules/functions.mdc), [tasks.mdc](mdc:.cursor/rules/tasks.mdc) and [integration_tests.mdc](mdc:.cursor/rules/integration_tests.mdc)
+
+## Outputs
+
+- `<milestone>-tasklist.md`
+    - **Format:** Markdown (`.md`)
+    - **Location:** `/project_docs/tasklists/*-tasklist.md`
+
+## Process
+
+1. `grep search` for a `milestones.md` if not found ask the user to create one then stop.
+
+2. `grep search` for a [example-task-list.md](mdc:project_docs/tasklists/example-task-list.md) This should have detailed instructions for creating each `*-tasklist.md`. If none exists, stop and ask the user to provide one.
+
+3. Analyze the `prd.md` and the `milstones.md`. 
+
+4. For each milestone `grep search` for an existing `<milestone>-tasklist.md` if none exists generate one using the [example-task-list.md](mdc:project_docs/tasklists/example-task-list.md) otherwise update the existing one.
+
+5. Review each tasklist generated or updated, review it and remove any redundancies. For example a function created earlier that can be leveraged in a downstream milestone so it doesnt need to be created again.

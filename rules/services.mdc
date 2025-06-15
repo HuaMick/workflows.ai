@@ -1,0 +1,42 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Guidelines
+- Each service should have its own dedicated directory within the services/ folder
+- Docker Compose file (docker-compose.yml) resides in the root of the services/ folder
+- Each service should include a Dockerfile and any required configuration files
+- Services should follow the principle of single responsibility
+- Services should be designed to be scalable and replaceable
+
+## Service Design
+- Services should be isolated and communicate through well-defined interfaces
+- Environment variables should be used for configuration
+- Sensitive information should be stored in the secrets/ folder and referenced appropriately
+- Health checks should be implemented for each service
+- Logging should be standardized across services
+- Network configuration should be explicitly defined in the docker-compose.yml file
+
+When creating a service:
+- [ ] Define clear service boundaries and responsibilities
+- [ ] Document service dependencies and requirements
+- [ ] Include appropriate health checks and monitoring
+- [ ] Provide clear documentation for configuration options
+- [ ] Set up appropriate volume mounts for persistent data
+- [ ] Configure proper network settings and exposed ports
+
+## Service Structure Example
+```
+services/
+├── docker-compose.yml
+├── service1/
+│   ├── Dockerfile
+│   ├── config/
+│   │   └── service_config.yml
+│   └── scripts/
+│       └── entrypoint.sh
+└── service2/
+    ├── Dockerfile
+    └── ...
+```

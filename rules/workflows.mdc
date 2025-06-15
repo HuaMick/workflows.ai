@@ -1,0 +1,31 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Guidelines
+- Please follow the patterns in [example_workflow.py](mdc:src/workflows/example_workflow.py)
+- Focus on clear process flow with status reporting at each step
+
+## Workflow Design
+- **Main function structure**: Always include a `main()` function with clear documentation
+- **Process tracking**: Use print statements to show progress through each step
+- **Error handling**: Use `sys.exit(1)` for critical failures, try-except for external services
+- **Early return pattern**: Validate inputs and fail fast with clear error messages
+- **Function chaining**: Import and call functions from `src/functions/` directory
+- **Result handling**: Check function success/failure and handle appropriately
+- **Final summary**: Provide completion status and summary of results
+
+## Best Practices
+- **One workflow per file**: Workflow filename should match the main workflow it performs
+- **Import functions**: Always import from `src/functions/` - never inline business logic
+- **Status reporting**: Print clear messages for each major step
+- **Error propagation**: Let function errors bubble up with context
+- **Minimalistic**: Focus on orchestration, not implementation
+- **Documentation**: Include docstring explaining the overall workflow
+
+When creating a workflow:
+- [ ] `grep_search` for existing functions that could potentially be leveraged  
+- [ ] Create an integration test [integration_tests.mdc](mdc:.cursor/rules/integration_tests.mdc) for each workflow that is created
+- [ ] Create an integration test [scripts.mdc](mdc:.cursor/rules/scripts.mdc) shell script for the workflow's integration test
+- [ ] Create a workflow execution script [scripts.mdc](mdc:.cursor/rules/scripts.mdc) 

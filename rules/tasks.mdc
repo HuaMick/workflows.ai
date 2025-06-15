@@ -1,0 +1,32 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Philosophy
+Tasks represent work that falls outside the core software components like functions, workflows, classes, or services. They are the essential non-code activities required for project completion, such as documentation, setup, research, and decision-making.
+
+A task is a discrete unit of work that can be tracked and completed. It helps in managing the project's progress beyond just code implementation.
+
+## Guidelines
+- **Task Scope**: A task should be a specific, actionable item.
+- **Examples of Tasks**:
+    - Writing or updating documentation (e.g., `README.md`).
+    - Setting up project structure (e.g., creating directories).
+    - Defining data schemas or configurations.
+    - Researching a new technology or library.
+    - Making a design decision and documenting it.
+- **Separation of Concerns**: Keep tasks separate from the implementation of functions, workflows, classes, and services. A task might be "Define the schema for X," while a separate function/workflow would be "Implement the process that uses the schema for X."
+
+## When defining a task:
+- [ ] Ensure it's not better represented as a function, workflow, class, or service.
+- [ ] Define a clear deliverable or outcome for the task.
+- [ ] Add it to the relevant project management document (e.g., `task-list.md`).
+
+## Example Task
+In a `task-list.md` file:
+
+```markdown
+- [ ] **Task:** Define the database schema for user profiles.
+  - **Deliverable:** A markdown file in `project_docs/schemas/user_profile.md` outlining the fields, types, and constraints.
+```

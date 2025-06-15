@@ -1,0 +1,41 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Guidelines
+- Configurations should be stored as Python files in the `src/config/` directory.
+- The primary export from a config file should be a dictionary, typically named `CONFIG`.
+- Use Python dictionaries and lists of dictionaries to structure configuration data. This allows for clear, hierarchical, and readable configs.
+- Sensitive values like passwords or API keys should not be hardcoded. They should be loaded from environment variables or a secrets management system.
+
+## Config Design
+- **Clarity and Structure**: Group related parameters together within nested dictionaries.
+- **Naming Conventions**: Use descriptive names for configuration keys.
+- **Example-driven**: Please follow the structure outlined in the example configuration: `src/config/example_config.py`.
+
+## When creating a config:
+- [ ] Ensure the file is placed in `src/config/`.
+- [ ] Use dictionaries and lists of dictionaries for structure.
+- [ ] Avoid hardcoding sensitive information.
+- [ ] `grep_search` for existing configs to see if a new one is necessary or if an existing one can be updated.
+
+## Config Structure Example
+This is a conceptual example. For a runnable file, see `src/config/example_config.py`.
+```python
+# src/config/my_app_config.py
+
+CONFIG = {
+    "database": {
+        "host": "localhost",
+        "port": 5432
+    },
+    "external_services": [
+        {
+            "name": "service_a",
+            "api_key": "LOAD_FROM_ENV",
+            "retries": 3
+        }
+    ]
+}
+```

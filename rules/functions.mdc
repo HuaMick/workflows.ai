@@ -1,0 +1,27 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+## Function Design Patterns
+- standard return format: `{"success": bool, "message": str, "result": dict}`.
+- please follow exale_function.py
+- functions should be stored in ./src/functions.
+- unless dealing with external services functions should assume correct parameters will be passed to it.
+- Assume all params are passed in correctly. Dont handle exceptions until its determined to be nessary to meet project goals.
+
+- Early return pattern used for validation with clear error messages.
+- Exception handling with try-except only when dealing with external services.
+- One function per a file. The name of the function should match the file name.
+- Detailed documentation with docstrings including parameter and return descriptions.
+
+## Function Design Principals
+### Atomic Functions
+- Single Responsibility Principle: Each function should have one clear, distinct responsibility.
+- Value Chain Contribution: Every function must add measurable, independent value to the overall process.
+- Avoid Redundant Wrappers: Do not create functions that merely chain or re-wrap existing functions without adding new, distinct logic or value.
+
+## Workflows
+When creating a function:
+- [ ] `grep_search` for existing functions before a creating new one.
+- [ ] `grep_search` for existing functions that could potentially be leveaged.

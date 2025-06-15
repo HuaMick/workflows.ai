@@ -1,10 +1,6 @@
-*The generated task list _must_ follow this structure:*
-
 ## Milestones Title
 
-*List the milestones, tasks, nodes and functions here.*
-*Descriptions should be concise, short and describe how the function is leveraged by the node, or how the node/task helps deliver the milestone.*
-*Create classes sparingly and give strong preference to creating functions instead. Classes should only be created when they provide clear benefits such as encapsulation of related state and behavior, or when implementing interfaces. Favor functional approaches and pure functions where possible.*
+Short description of the milestone and its objective goes here.
 
 - [ ] 1 [TASK][Task description]
 - [ ] 2 [SERVICE][Service name]

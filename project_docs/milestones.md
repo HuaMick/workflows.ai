@@ -1,21 +1,26 @@
 ## Milestones
 
-- [x] 1. **Initial Setup & Workflow Definition**
-    Define the project structure and the format for `workflow.md` based on the product requirements.
-- [x] 2. **Workflow Parser Implementation**
-    Create a parser to read and extract actions, parameters, and output paths from `workflow.md`.
-- [ ] 3. **LLM Caller Implementation**
-    Implement the functionality to execute a call to the specified LLM (initially Google Gemini) using the parsed prompt.
-- [ ] 4. **Output Storage Implementation**
-    Develop the logic to save the LLM response to the file specified in the workflow.
-- [ ] 5. **CLI Trigger**
-    Build a command-line interface to start the MCP server and trigger the workflow execution.
+- [ ] 1. CLI for User Input
+    Implement a command-line interface (CLI) to accept a user's text prompt, as detailed in FR1.1 and TR1.3.
+
+- [ ] 2. Gemini API Integration
+    Integrate with the Google Gemini API to send the user's prompt and receive a response (FR1.2, TR1.2).
+
+- [ ] 3. Core Workflow as LangGraph
+    Implement the core application logic as a LangGraph graph, connecting the CLI input, API interaction, and file output (FR1.5, TR1.1).
+
+- [ ] 4. Response Handling and Output
+    Process the response from the Gemini API and save it to a new markdown file (FR1.3, FR1.4).
+    **Note:** For the output markdown file naming convention, we'll use `response_yyyymmdd.md` format for now (e.g., `response_20240615.md`). This is just to ensure the proof of concept is working properly.
+
+- [ ] 5. Basic Server Implementation
+    Create a basic server to host and execute the LangGraph graph, enabling the system to run as a server-based application (FR1.6, US3).
 
 ## Out Of Scope
+The following items are out of scope for the initial MVP, as defined in the PRD:
 
-- [ ] **Complex Workflows**
-    Support for multi-step workflows is out of scope for the POC.
-- [ ] **Dynamic Context**
-    Passing dynamic context into the prompt is not supported in this version.
-- [ ] **User Interface**
-    A graphical user interface is not part of the initial scope. 
+- [ ] Advanced workflow customization and configuration.
+- [ ] Agent context management.
+- [ ] Job scheduling and automation features.
+- [ ] Support for any AI models besides Gemini.
+- [ ] A graphical user interface (GUI). 
