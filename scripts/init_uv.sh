@@ -32,14 +32,22 @@ if [ ! -f "pyproject.toml" ]; then
 fi
 
 # 4. Create a virtual environment with uv
-echo "Creating virtual environment..."
-uv venv
+if [ ! -d ".venv" ]; then
+    echo "Creating virtual environment..."
+    uv venv
+else
+    echo "Virtual environment .venv already exists."
+fi
 
-# 5. Install dependencies
-echo "Installing dependencies..."
+# 5. Sync dependencies
+echo "Syncing dependencies from pyproject.toml..."
 uv pip sync pyproject.toml
 
+
 # 6. Provide activation instructions
+echo ""
 echo "Setup complete!"
 echo "To activate the virtual environment, run:"
 echo "source .venv/bin/activate"
+echo ""
+echo "Dependencies are up to date."
