@@ -1,8 +1,8 @@
 ## Milestones
 
-- [ ] 1. **Initial Setup & Workflow Definition**
+- [x] 1. **Initial Setup & Workflow Definition**
     Define the project structure and the format for `workflow.md` based on the product requirements.
-- [ ] 2. **Workflow Parser Implementation**
+- [x] 2. **Workflow Parser Implementation**
     Create a parser to read and extract actions, parameters, and output paths from `workflow.md`.
 - [ ] 3. **LLM Caller Implementation**
     Implement the functionality to execute a call to the specified LLM (initially Google Gemini) using the parsed prompt.
