@@ -5,7 +5,7 @@ description = "AI-powered workflows"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "fastmcp",
+    "firecrawl-py",
     "pytest",
     "pytest-cov",
     "pytest-mock",
