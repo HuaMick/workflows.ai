@@ -39,15 +39,11 @@ else
     echo "Virtual environment .venv already exists."
 fi
 
-# 5. Sync dependencies
-echo "Syncing dependencies from pyproject.toml..."
-uv pip sync pyproject.toml
-
-
 # 6. Provide activation instructions
 echo ""
 echo "Setup complete!"
 echo "To activate the virtual environment, run:"
 echo "source .venv/bin/activate"
 echo ""
-echo "Dependencies are up to date."
+echo "To install dependencies please run:"
+echo "scripts/init_pydependancies.sh"
