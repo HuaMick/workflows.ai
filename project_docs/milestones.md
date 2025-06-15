@@ -1,3 +1,13 @@
+## Task Lists
+
+The following task lists have been generated based on the milestones:
+
+- [1. CLI for User Input](./tasklists/1-cli-for-user-input-tasklist.md)
+- [2. Gemini API Integration](./tasklists/2-gemini-api-integration-tasklist.md)
+- [3. Core Workflow as LangGraph](./tasklists/3-core-workflow-as-langgraph-tasklist.md)
+- [4. Response Handling and Output](./tasklists/4-response-handling-and-output-tasklist.md)
+- [5. Basic Server Implementation](./tasklists/5-basic-server-implementation-tasklist.md)
+
 ## Milestones
 
 - [ ] 1. CLI for User Input

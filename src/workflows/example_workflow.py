@@ -1,7 +1,7 @@
 """
-Execute this node using the shell script.
+Execute this workflow using the shell script.
 Path to shell script:
-src/scripts/example_node.sh
+src/scripts/example_workflow.sh
 """
 
 import os
@@ -10,10 +10,10 @@ from src.functions.example_function import example_function
 
 def main():
     """
-    Example node that demonstrates chaining multiple functions together.
-    This node processes a series of input values through the example_function.
+    Example workflow that demonstrates chaining multiple functions together.
+    This workflow processes a series of input values through the example_function.
     """
-    print("Starting example node process...")
+    print("Starting example workflow process...")
 
     # Example input data
     input_values = ["hello", "world", "test"]
@@ -49,7 +49,7 @@ def main():
         sys.exit(1)
     
     # Final summary
-    print(f"\nExample node process completed successfully.")
+    print(f"\nExample workflow process completed successfully.")
     print(f"Processed {len(results)} values: {results}")
 
 if __name__ == '__main__':

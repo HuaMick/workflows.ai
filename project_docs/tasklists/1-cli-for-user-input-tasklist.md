@@ -1,16 +1,11 @@
-# Milestone 1: CLI for User Input
+## 1. CLI for User Input
 
-*Implement a command-line interface (CLI) to accept a user's text prompt, as detailed in FR1.1 and TR1.3. This will serve as the entry point for invoking the workflow.*
+Implement a command-line interface (CLI) to accept a user's text prompt, as detailed in FR1.1 and TR1.3.
 
-- [ ] 1 [TASK][Research CLI library]
-    Research and choose a suitable Python library for building the CLI (e.g., `argparse`, `click`, `typer`).
-- [ ] 2 [TASK][Design CLI command]
-    Design the CLI command structure and arguments for accepting a user prompt.
-- [ ] 3 [FUNCTION][`main`]
-    The main entry point for the CLI. It will parse arguments and pass the prompt to the core workflow.
-- [ ] 4 [TASK][Implement CLI]
-    Implement the basic CLI to capture user input and call a placeholder for the workflow.
-- [ ] 5 [TASK][Write unit tests]
-    Write unit tests to ensure the CLI is capturing input correctly.
-- [ ] 6 [TASK][Document CLI usage]
-    Document the CLI usage in a README or help text. 
+- [ ] 1 [TASK] Setup Typer for CLI argument parsing.
+- [ ] 2 [WORKFLOW] Create a CLI workflow in `src/workflows/cli.py`.
+    - [ ] 2.1 [FUNCTION] Implement a function `prompt_for_user_input()` in `src/functions/cli.py` to handle user input.
+        - Description: Prompts the user for text input from the command line.
+        - Parameters: None
+        - Returns: string (the user's input)
+    - [ ] 2.2 [WORKFLOW INTEGRATION TEST] Create a test `tests/test_cli_workflow.sh` to verify the CLI workflow. 

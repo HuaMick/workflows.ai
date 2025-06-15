@@ -8,7 +8,7 @@ This project aims to build a customizable, AI-powered workflow automation system
 
 *   The user has a Google Cloud project with the Gemini API enabled.
 *   API key management for the Gemini API is handled by the user.
-*   The CLI will be developed using a standard Python library like `click` or `argparse`.
+*   The CLI will be developed using Typer.
 
 ## Goals
 

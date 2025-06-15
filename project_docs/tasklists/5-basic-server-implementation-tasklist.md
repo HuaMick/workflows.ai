@@ -1,16 +1,12 @@
-# Milestone 5: Basic Server Implementation
+## 5. Basic Server Implementation
 
-*Create a basic server to host and execute the LangGraph graph, enabling the system to run as a server-based application (FR1.6, US3).*
+Create a basic server to host and execute the LangGraph graph, enabling the system to run as a server-based application (FR1.6, US3).
 
-- [ ] 1 [TASK][Research web framework]
-    Research and choose a lightweight Python web framework (e.g., `FastAPI`, `Flask`).
-- [ ] 2 [TASK][Implement server]
-    Set up the basic server application.
--   [ ] 2.1 [FUNCTION][`invoke_workflow`]
-        An API endpoint (e.g., `/invoke`) that accepts a POST request with the user prompt. This will call the compiled LangGraph app.
-        - **Parameters:** A request body containing the `prompt` string.
-        - **Returns:** A JSON response indicating success or failure.
--   [ ] 2.2 [TASK][Write API tests]
-        Write integration tests for the `/invoke` endpoint to validate success and error scenarios.
-- [ ] 3 [TASK][Containerize application]
-    Create a `Dockerfile` to containerize the server application for deployment. 
+- [ ] 1 [TASK] Add `fastapi` and `uvicorn` to project dependencies.
+- [ ] 2 [SERVICE] Create a new FastAPI application in `src/services/server.py`.
+    - Description: This service will expose an endpoint to trigger the main LangGraph workflow.
+- [ ] 3 [WORKFLOW] Adapt the main workflow to be triggerable from the server.
+    - Description: This might involve refactoring `main_workflow.py` to be callable as a function.
+- [ ] 4 [TASK] Create a Dockerfile for the server service.
+- [ ] 5 [TASK] Create a docker-compose.yml to run the server.
+- [ ] 6 [WORKFLOW INTEGRATION TEST] Create a test `tests/test_server.sh` to send a request to the server and verify the workflow is executed. 
